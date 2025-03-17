@@ -2,11 +2,11 @@
   "name": "expencegql",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "node backend/index.js",
-    "dev": "nodemon backend/index.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
-  },
+ "scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+,
   "type": "module",
   "author": "jaldip",
   "license": "ISC",
