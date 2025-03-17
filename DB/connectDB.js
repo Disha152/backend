@@ -5,12 +5,13 @@ export const connectDB = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      tls: true, // Ensure TLS is enabled
-      tlsAllowInvalidCertificates: true, // Bypass SSL validation (if necessary)
+      tlsAllowInvalidCertificates: false, // Ensures proper SSL verification
+      tlsInsecure: false, // Forces secure TLS
+      serverSelectionTimeoutMS: 5000, // Timeout if connection fails
     });
-    console.log("✅ MongoDB Connected");
+    console.log("✅ MongoDB Connected Successfully");
   } catch (error) {
-    console.error("❌ MongoDB Connection Failed:", error.message);
+    console.error("❌ MongoDB Connection Error:", error);
     process.exit(1);
   }
 };
