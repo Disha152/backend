@@ -78,6 +78,22 @@ app.use(
 //   res.sendFile(path.join(__dirname, "Frontend/dist","index.html"));
 // })
 // Modified server startup
-await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+
+
+// // await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+
+// const PORT = process.env.PORT || 4000; // Use Render's assigned port
+
+// httpServer.listen(PORT, () => {
+//   console.log(`🚀 Server ready at http://localhost:${PORT}/`);
+// });
+
+const PORT = process.env.PORT || 4000; // Use Render's assigned port
+
+await new Promise((resolve) => httpServer.listen(PORT, resolve));
+
+console.log(`🚀 Server ready at http://localhost:${PORT}/`);
+
+
 await connectDB();
 console.log(`🚀 Server ready at http://localhost:4000/`);
