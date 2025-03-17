@@ -58,10 +58,15 @@ await server.start();
 
 app.use(
   "/graphql",
+  // cors({
+  //   origin: process.env.FRONTEND_URL, // ✅ FIXED: Use env variable
+  //   credentials: true,
+  // }),
   cors({
-    origin: process.env.FRONTEND_URL, // ✅ FIXED: Use env variable
+    origin: process.env.FRONTEND_URL,
     credentials: true,
-  }),
+  })
+,  
   express.json(),
   expressMiddleware(server, {
     context: async ({ req, res }) => buildContext({ req, res }),
