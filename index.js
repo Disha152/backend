@@ -63,7 +63,7 @@ await server.start();
 app.use(
   "/graphql",
   cors({
-    origin: 'http://localhost:5173',
+    origin: 'FRONTEND_URL',
     credentials: true,
   }),
 
