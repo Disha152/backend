@@ -25,6 +25,7 @@ const httpServer = http.createServer(app);
 
 
 
+
 const MongoDBStore = ConnectMongo(session);
 
 const store = new MongoDBStore({
@@ -73,6 +74,10 @@ app.use(
     context: async ({ req, res }) => buildContext({ req, res }),
   })
 );
+
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running!");
+});
 // app.use(express.static(path.join(__dirname, "Frontend/dist")));
 // app.get("*",(req,res)=>{
 //   res.sendFile(path.join(__dirname, "Frontend/dist","index.html"));
