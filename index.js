@@ -73,10 +73,10 @@ app.use(
     context: async ({ req, res }) => buildContext({ req, res }),
   })
 );
-app.use(express.static(path.join(__dirname, "Frontend/dist")));
-app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname, "Frontend/dist","index.html"));
-})
+// app.use(express.static(path.join(__dirname, "Frontend/dist")));
+// app.get("*",(req,res)=>{
+//   res.sendFile(path.join(__dirname, "Frontend/dist","index.html"));
+// })
 // Modified server startup
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 await connectDB();
